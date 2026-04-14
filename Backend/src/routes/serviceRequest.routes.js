@@ -1,0 +1,13 @@
+import express from "express";
+import { createServiceRequest, getAllServiceRequests, getServiceRequestById, updateServiceRequest, assignRequest, updateRequestStatus, approveRequest, deleteRequest, getDashboardStats } from "../controllers/serviceRequest.controller.js";
+const router = express.Router();
+router.get("/stats", getDashboardStats);
+router.post("/", createServiceRequest);
+router.get("/", getAllServiceRequests);
+router.get("/:requestId", getServiceRequestById);
+router.put("/:requestId", updateServiceRequest);
+router.delete("/:requestId", deleteRequest);
+router.patch("/:requestId/assign", assignRequest);
+router.patch("/:requestId/status", updateRequestStatus);
+router.patch("/:requestId/approve", approveRequest);
+export default router;
